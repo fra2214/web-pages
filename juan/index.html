@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estudio Norte — Arquitectura y diseño</title>
+    
+    <!-- ==========================================================================
+       1. DATOS DEL CLIENTE: METADATOS Y TÍTULO
+       ========================================================================== -->
+    <title>Studio Alma — Peluquería y belleza</title>
+    <meta name="description" content="Un espacio para sentirte bien. Cortes, color y tratamientos personalizados.">
+
     <style>
         /* ==========================================================================
            RESET & SYSTEM VARIABLES
@@ -123,6 +129,13 @@
             font-weight: 400;
         }
 
+        .hero-phrase {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
         .hero-text {
             font-size: 1.05rem;
             color: var(--text-muted);
@@ -139,7 +152,6 @@
             display: block;
         }
 
-        /* Hide image gracefully if tag is removed or file missing fallback styling */
         .hero-image:not([src]), 
         .hero-image[src=""] {
             display: none;
@@ -294,11 +306,13 @@
 </head>
 <body>
 
-    <!-- ENCABEZADO -->
+    <!-- ==========================================================================
+       ENCABEZADO & NAVEGACIÓN
+       ========================================================================== -->
     <header>
         <div class="container header-content">
-            <!-- DATOS CLIENTE: Nombre del negocio -->
-            <a href="#" class="logo">Estudio Norte</a>
+            <!-- DATOS CLIENTE (1): Nombre del negocio -->
+            <a href="#inicio" class="logo">Studio Alma</a>
             
             <nav>
                 <ul>
@@ -312,90 +326,100 @@
 
     <main class="container">
 
-        <!-- PRESENTACIÓN -->
+        <!-- ==========================================================================
+           SECCIÓN PRINCIPAL / HERO
+           ========================================================================== -->
         <section id="inicio" class="hero">
             <div class="hero-content">
-                <!-- DATOS CLIENTE: Nombre del negocio -->
-                <h1 class="hero-title">Estudio Norte</h1>
-                <!-- DATOS CLIENTE: Frase corta -->
-                <p class="hero-subtitle">Arquitectura y diseño</p>
-                <!-- DATOS CLIENTE: Descripción breve -->
-                <p class="hero-text">Diseñamos espacios pensados para las personas.</p>
-                <!-- DATOS CLIENTE: WhatsApp (Reemplazar número) -->
+                <!-- DATOS CLIENTE (1): Nombre del negocio -->
+                <h1 class="hero-title">Studio Alma</h1>
+
+                <!-- DATOS CLIENTE (2): Rubro / Actividad -->
+                <p class="hero-subtitle">Peluquería y belleza</p>
+
+                <!-- DATOS CLIENTE (3): Frase principal -->
+                <p class="hero-phrase">"Un espacio para sentirte bien."</p>
+
+                <!-- DATOS CLIENTE (4): Descripción -->
+                <p class="hero-text">Cortes, color y tratamientos personalizados.</p>
+
+                <!-- DATOS CLIENTE (13): WhatsApp -->
                 <a href="https://wa.me/5491100000000" class="btn btn-block" target="_blank" rel="noopener">Contactar por WhatsApp</a>
             </div>
             
-            <!-- DATOS CLIENTE: Ruta de la imagen principal -->
-            <img src="images/foto-principal.webp" alt="Estudio Norte - Arquitectura y diseño" class="hero-image">
+            <!-- DATOS CLIENTE (5): Imagen Principal -->
+            <img src="images/foto-principal.webp" alt="Studio Alma — Peluquería y belleza" class="hero-image">
         </section>
 
-        <!-- SERVICIOS -->
+        <!-- ==========================================================================
+           SERVICIOS
+           ========================================================================== -->
         <section id="servicios">
             <h2 class="section-title">Servicios</h2>
             <div class="services-grid">
                 
-                <!-- Servicio 1 -->
+                <!-- DATOS CLIENTE (6): Servicio 1 -->
                 <article class="service-card">
-                    <h3>Proyecto</h3>
-                    <p>Diseño integral y desarrollo de documentación técnica para arquitectura.</p>
+                    <h3>Corte</h3>
+                    <p>Diseño y corte de cabello adaptado a tu estilo y personalidad.</p>
                 </article>
 
-                <!-- Servicio 2 -->
+                <!-- DATOS CLIENTE (7): Servicio 2 -->
                 <article class="service-card">
-                    <h3>Dirección de obra</h3>
-                    <p>Supervisión y control de ejecución para asegurar la máxima calidad.</p>
+                    <h3>Color</h3>
+                    <p>Técnicas avanzadas de coloración, iluminación y retoque de raíz.</p>
                 </article>
 
-                <!-- Servicio 3 -->
+                <!-- DATOS CLIENTE (8): Servicio 3 -->
                 <article class="service-card">
-                    <h3>Interiorismo</h3>
-                    <p>Optimización de ambientes, selección de materiales, mobiliario e iluminación.</p>
+                    <h3>Tratamientos</h3>
+                    <p>Cuidado intensivo para la nutrición, hidratación y restauración capilar.</p>
                 </article>
 
-                <!-- Servicio 4 -->
+                <!-- DATOS CLIENTE (9): Servicio 4 -->
                 <article class="service-card">
-                    <h3>Consultoría</h3>
-                    <p>Asesoramiento técnico y espacial antes de iniciar tu inversión.</p>
+                    <h3>Peinados</h3>
+                    <p>Peinados sociales y producciones especiales para todo tipo de eventos.</p>
                 </article>
 
             </div>
         </section>
 
-        <!-- INFORMACIÓN Y CONTACTO -->
+        <!-- ==========================================================================
+           INFORMACIÓN Y CONTACTO
+           ========================================================================== -->
         <section id="contacto">
             <h2 class="section-title">Contacto e Información</h2>
             
             <div class="info-grid">
-                <!-- Información general -->
                 <div class="info-details">
-                    <!-- DATOS CLIENTE: Ubicación -->
+                    <!-- DATOS CLIENTE (10): Ubicación -->
                     <div class="info-item">
                         <strong>Ubicación</strong>
                         <span>Buenos Aires, Argentina</span>
                     </div>
 
-                    <!-- DATOS CLIENTE: Horario -->
+                    <!-- DATOS CLIENTE (11): Horarios -->
                     <div class="info-item">
                         <strong>Horarios</strong>
-                        <span>Lunes a viernes de 9:00 a 18:00</span>
+                        <span>Lunes a sábado de 9:00 a 19:00</span>
                     </div>
 
-                    <!-- DATOS CLIENTE: Instagram -->
+                    <!-- DATOS CLIENTE (12): Instagram -->
                     <div class="info-item">
                         <strong>Instagram</strong>
-                        <a href="https://instagram.com/estudionorte" target="_blank" rel="noopener">@estudionorte</a>
+                        <a href="https://instagram.com/studioalma" target="_blank" rel="noopener">@studioalma</a>
                     </div>
                 </div>
 
-                <!-- Acciones directas de contacto -->
                 <div class="contact-box">
-                    <!-- DATOS CLIENTE: WhatsApp -->
+                    <!-- DATOS CLIENTE (13): WhatsApp -->
                     <a href="https://wa.me/5491100000000" class="btn" target="_blank" rel="noopener">Escribir por WhatsApp</a>
                     
-                    <!-- DATOS CLIENTE: Email (Opcional) -->
+                    <!-- DATOS CLIENTE (14): Email -->
                     <div class="info-item" style="margin-top: 10px; margin-bottom: 0;">
                         <strong>Correo electrónico</strong>
-                        <a href="mailto:contacto@estudionorte.com">contacto@estudionorte.com</a>
+                        <a href="mailto:hola@studioalma.com">hola@studioalma.com</a>
                     </div>
                 </div>
             </div>
@@ -403,19 +427,21 @@
 
     </main>
 
-    <!-- PIE DE PÁGINA -->
+    <!-- ==========================================================================
+       PIE DE PÁGINA / FOOTER
+       ========================================================================== -->
     <footer>
         <div class="container">
-            <!-- DATOS CLIENTE: Nombre y Año -->
-            <p>&copy; 2026 Estudio Norte. Todos los derechos reservados.</p>
+            <!-- DATOS CLIENTE (1): Nombre del negocio -->
+            <p>&copy; 2026 Studio Alma. Todos los derechos reservados.</p>
         </div>
     </footer>
 
 </body>
 </html>
-```<FollowUp>
-¿Querés que adaptemos este código para un segundo cliente o te gustaría guardar esta plantilla en un repositorio de GitHub como base estándar?
-</FollowUp><ElicitationsGroup>
-¿Preferís cambiar el color principal (negro) por algún tono institucional corporativo?
-¿Necesitás que agregue alguna sección adicional, como una breve galería de imágenes o testimonios?
+```<FollowUp label="¿Querés que guardemos esta estructura corregida como la plantilla base oficial para tus próximos proyectos?" query="¿Querés que guardemos esta estructura corregida como la plantilla base oficial para tus próximos proyectos?"/>
+
+<ElicitationsGroup message="Siguientes pasos recomendados:">
+  <Elicitation label="Crear una guía en formato Markdown para clientes" query="Crea un archivo README.md que explique cómo completar la plantilla paso a paso."/>
+  <Elicitation label="Generar una versión para otro negocio de servicios" query="Genera una prueba utilizando esta plantilla corregida para un profesional independiente o consultoría."/>
 </ElicitationsGroup>
