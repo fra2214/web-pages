@@ -1,9 +1,421 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Juan</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudio Norte — Arquitectura y diseño</title>
+    <style>
+        /* ==========================================================================
+           RESET & SYSTEM VARIABLES
+           ========================================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-color: #fcfcfc;
+            --surface-color: #ffffff;
+            --text-main: #171717;
+            --text-muted: #666666;
+            --border-color: #e5e5e5;
+            --accent-color: #000000;
+            --accent-hover: #333333;
+            --max-width: 1100px;
+            --radius: 8px;
+            --font-stack: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-stack);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ==========================================================================
+           LAYOUT & CONTAINER
+           ========================================================================== */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* ==========================================================================
+           HEADER / NAVIGATION
+           ========================================================================== */
+        header {
+            background-color: var(--surface-color);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-main);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: var(--text-main);
+        }
+
+        /* ==========================================================================
+           HERO SECTION
+           ========================================================================== */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: center;
+            padding: 80px 0;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin-bottom: 12px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            font-weight: 400;
+        }
+
+        .hero-text {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            max-width: 540px;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: auto;
+            border-radius: var(--radius);
+            object-fit: cover;
+            border: 1px solid var(--border-color);
+            display: block;
+        }
+
+        /* Hide image gracefully if tag is removed or file missing fallback styling */
+        .hero-image:not([src]), 
+        .hero-image[src=""] {
+            display: none;
+        }
+
+        /* ==========================================================================
+           BUTTONS
+           ========================================================================== */
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 1rem;
+            text-align: center;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+
+        /* ==========================================================================
+           SERVICES SECTION
+           ========================================================================== */
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 36px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .service-card {
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 28px;
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* ==========================================================================
+           INFO & CONTACT SECTION
+           ========================================================================== */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-item {
+            margin-bottom: 20px;
+        }
+
+        .info-item strong {
+            display: block;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .info-item span,
+        .info-item a {
+            font-size: 1.05rem;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .info-item a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-box {
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        /* ==========================================================================
+           FOOTER
+           ========================================================================== */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* ==========================================================================
+           RESPONSIVE DESIGNS (TABLET & DESKTOP)
+           ========================================================================== */
+        @media (min-width: 640px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .btn-block {
+                display: inline-block;
+                width: auto;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr 1fr;
+                padding: 100px 0;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Hola, soy Juan</h1>
+
+    <!-- ENCABEZADO -->
+    <header>
+        <div class="container header-content">
+            <!-- DATOS CLIENTE: Nombre del negocio -->
+            <a href="#" class="logo">Estudio Norte</a>
+            
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- PRESENTACIÓN -->
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <!-- DATOS CLIENTE: Nombre del negocio -->
+                <h1 class="hero-title">Estudio Norte</h1>
+                <!-- DATOS CLIENTE: Frase corta -->
+                <p class="hero-subtitle">Arquitectura y diseño</p>
+                <!-- DATOS CLIENTE: Descripción breve -->
+                <p class="hero-text">Diseñamos espacios pensados para las personas.</p>
+                <!-- DATOS CLIENTE: WhatsApp (Reemplazar número) -->
+                <a href="https://wa.me/5491100000000" class="btn btn-block" target="_blank" rel="noopener">Contactar por WhatsApp</a>
+            </div>
+            
+            <!-- DATOS CLIENTE: Ruta de la imagen principal -->
+            <img src="images/foto-principal.webp" alt="Estudio Norte - Arquitectura y diseño" class="hero-image">
+        </section>
+
+        <!-- SERVICIOS -->
+        <section id="servicios">
+            <h2 class="section-title">Servicios</h2>
+            <div class="services-grid">
+                
+                <!-- Servicio 1 -->
+                <article class="service-card">
+                    <h3>Proyecto</h3>
+                    <p>Diseño integral y desarrollo de documentación técnica para arquitectura.</p>
+                </article>
+
+                <!-- Servicio 2 -->
+                <article class="service-card">
+                    <h3>Dirección de obra</h3>
+                    <p>Supervisión y control de ejecución para asegurar la máxima calidad.</p>
+                </article>
+
+                <!-- Servicio 3 -->
+                <article class="service-card">
+                    <h3>Interiorismo</h3>
+                    <p>Optimización de ambientes, selección de materiales, mobiliario e iluminación.</p>
+                </article>
+
+                <!-- Servicio 4 -->
+                <article class="service-card">
+                    <h3>Consultoría</h3>
+                    <p>Asesoramiento técnico y espacial antes de iniciar tu inversión.</p>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- INFORMACIÓN Y CONTACTO -->
+        <section id="contacto">
+            <h2 class="section-title">Contacto e Información</h2>
+            
+            <div class="info-grid">
+                <!-- Información general -->
+                <div class="info-details">
+                    <!-- DATOS CLIENTE: Ubicación -->
+                    <div class="info-item">
+                        <strong>Ubicación</strong>
+                        <span>Buenos Aires, Argentina</span>
+                    </div>
+
+                    <!-- DATOS CLIENTE: Horario -->
+                    <div class="info-item">
+                        <strong>Horarios</strong>
+                        <span>Lunes a viernes de 9:00 a 18:00</span>
+                    </div>
+
+                    <!-- DATOS CLIENTE: Instagram -->
+                    <div class="info-item">
+                        <strong>Instagram</strong>
+                        <a href="https://instagram.com/estudionorte" target="_blank" rel="noopener">@estudionorte</a>
+                    </div>
+                </div>
+
+                <!-- Acciones directas de contacto -->
+                <div class="contact-box">
+                    <!-- DATOS CLIENTE: WhatsApp -->
+                    <a href="https://wa.me/5491100000000" class="btn" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+                    
+                    <!-- DATOS CLIENTE: Email (Opcional) -->
+                    <div class="info-item" style="margin-top: 10px; margin-bottom: 0;">
+                        <strong>Correo electrónico</strong>
+                        <a href="mailto:contacto@estudionorte.com">contacto@estudionorte.com</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <div class="container">
+            <!-- DATOS CLIENTE: Nombre y Año -->
+            <p>&copy; 2026 Estudio Norte. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
 </body>
 </html>
+```<FollowUp>
+¿Querés que adaptemos este código para un segundo cliente o te gustaría guardar esta plantilla en un repositorio de GitHub como base estándar?
+</FollowUp><ElicitationsGroup>
+¿Preferís cambiar el color principal (negro) por algún tono institucional corporativo?
+¿Necesitás que agregue alguna sección adicional, como una breve galería de imágenes o testimonios?
+</ElicitationsGroup>
