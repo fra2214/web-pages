@@ -1,1 +1,472 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- ==========================================================================
+       DATOS DEL CLIENTE: METADATOS Y TÍTULO
+       ========================================================================== -->
+    <!-- [1. NOMBRE DEL NEGOCIO] — [2. RUBRO / ACTIVIDAD] -->
+    <title>Studio Alma — Peluquería y belleza</title>
+    
+    <!-- [3. FRASE PRINCIPAL] — [4. DESCRIPCIÓN] -->
+    <meta name="description" content="Un espacio para sentirte bien. Cortes, color y tratamientos personalizados.">
 
+    <style>
+        /* ==========================================================================
+           RESET & SYSTEM VARIABLES
+           ========================================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-color: #fcfcfc;
+            --surface-color: #ffffff;
+            --text-main: #171717;
+            --text-muted: #666666;
+            --border-color: #e5e5e5;
+            --accent-color: #000000;
+            --accent-hover: #333333;
+            --max-width: 1100px;
+            --radius: 8px;
+            --font-stack: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-stack);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ==========================================================================
+           LAYOUT & CONTAINER
+           ========================================================================== */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* ==========================================================================
+           HEADER / NAVIGATION
+           ========================================================================== */
+        header {
+            background-color: var(--surface-color);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-main);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: var(--text-main);
+        }
+
+        /* ==========================================================================
+           HERO SECTION
+           ========================================================================== */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: center;
+            padding: 80px 0;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin-bottom: 12px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            font-weight: 400;
+        }
+
+        .hero-phrase {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .hero-text {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            max-width: 540px;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: auto;
+            border-radius: var(--radius);
+            object-fit: cover;
+            border: 1px solid var(--border-color);
+            display: block;
+        }
+
+        .hero-image:not([src]), 
+        .hero-image[src=""] {
+            display: none;
+        }
+
+        /* ==========================================================================
+           BUTTONS
+           ========================================================================== */
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 1rem;
+            text-align: center;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+
+        /* ==========================================================================
+           SERVICES SECTION
+           ========================================================================== */
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 36px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .service-card {
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 28px;
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* ==========================================================================
+           INFO & CONTACT SECTION
+           ========================================================================== */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-item {
+            margin-bottom: 20px;
+        }
+
+        .info-item strong {
+            display: block;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .info-item span,
+        .info-item a {
+            font-size: 1.05rem;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .info-item a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-box {
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        /* ==========================================================================
+           FOOTER
+           ========================================================================== */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* ==========================================================================
+           RESPONSIVE DESIGNS (TABLET & DESKTOP)
+           ========================================================================== */
+        @media (min-width: 640px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .btn-block {
+                display: inline-block;
+                width: auto;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr 1fr;
+                padding: 100px 0;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================================================
+       ENCABEZADO & NAVEGACIÓN
+       ========================================================================== -->
+    <header>
+        <div class="container header-content">
+            <!-- ===== DATOS DEL CLIENTE: INICIO ===== -->
+            <!-- [1. NOMBRE DEL NEGOCIO] -->
+            <a href="#inicio" class="logo">Studio Alma</a>
+            <!-- ===== DATOS DEL CLIENTE: FIN ===== -->
+            
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- ==========================================================================
+           SECCIÓN PRINCIPAL / HERO
+           ========================================================================== -->
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <!-- ===== DATOS DEL CLIENTE: INICIO ===== -->
+                
+                <!-- [1. NOMBRE DEL NEGOCIO] -->
+                <h1 class="hero-title">Studio Alma</h1>
+
+                <!-- [2. RUBRO / ACTIVIDAD] -->
+                <p class="hero-subtitle">Peluquería y belleza</p>
+
+                <!-- [3. FRASE PRINCIPAL] -->
+                <p class="hero-phrase">"Un espacio para sentirte bien."</p>
+
+                <!-- [4. DESCRIPCIÓN] -->
+                <p class="hero-text">Cortes, color y tratamientos personalizados.</p>
+
+                <!-- [17. WHATSAPP] (Reemplazar número, sin '+' ni espacios) -->
+                <a href="https://wa.me/5491100000000" class="btn btn-block" target="_blank" rel="noopener">Contactar por WhatsApp</a>
+                
+                <!-- ===== DATOS DEL CLIENTE: FIN ===== -->
+            </div>
+            
+            <!-- ===== DATOS DEL CLIENTE: INICIO ===== -->
+            <!-- [5. IMAGEN PRINCIPAL] (Manejar ruta y texto alternativo con 1. NOMBRE DEL NEGOCIO y 2. RUBRO) -->
+            <img src="images/foto-principal.webp" alt="Studio Alma — Peluquería y belleza" class="hero-image">
+            <!-- ===== DATOS DEL CLIENTE: FIN ===== -->
+        </section>
+
+        <!-- ==========================================================================
+           SERVICIOS
+           ========================================================================== -->
+        <section id="servicios">
+            <h2 class="section-title">Servicios</h2>
+            <div class="services-grid">
+                
+                <!-- ===== DATOS DEL CLIENTE: INICIO ===== -->
+
+                <!-- [6. SERVICIO 1] & [7. DESCRIPCIÓN SERVICIO 1] -->
+                <article class="service-card">
+                    <h3>Corte</h3>
+                    <p>Diseño y corte de cabello adaptado a tu estilo y personalidad.</p>
+                </article>
+
+                <!-- [8. SERVICIO 2] & [9. DESCRIPCIÓN SERVICIO 2] -->
+                <article class="service-card">
+                    <h3>Color</h3>
+                    <p>Técnicas avanzadas de coloración, iluminación y retoque de raíz.</p>
+                </article>
+
+                <!-- [10. SERVICIO 3] & [11. DESCRIPCIÓN SERVICIO 3] -->
+                <article class="service-card">
+                    <h3>Tratamientos</h3>
+                    <p>Cuidado intensivo para la nutrición, hidratación y restauración capilar.</p>
+                </article>
+
+                <!-- [12. SERVICIO 4] & [13. DESCRIPCIÓN SERVICIO 4] -->
+                <article class="service-card">
+                    <h3>Peinados</h3>
+                    <p>Peinados sociales y producciones especiales para todo tipo de eventos.</p>
+                </article>
+
+                <!-- ===== DATOS DEL CLIENTE: FIN ===== -->
+
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+           INFORMACIÓN Y CONTACTO
+           ========================================================================== -->
+        <section id="contacto">
+            <h2 class="section-title">Contacto e Información</h2>
+            
+            <div class="info-grid">
+                <div class="info-details">
+                    <!-- ===== DATOS DEL CLIENTE: INICIO ===== -->
+
+                    <!-- [14. UBICACIÓN] -->
+                    <div class="info-item">
+                        <strong>Ubicación</strong>
+                        <span>Buenos Aires, Argentina</span>
+                    </div>
+
+                    <!-- [15. HORARIOS] -->
+                    <div class="info-item">
+                        <strong>Horarios</strong>
+                        <span>Lunes a sábado de 9:00 a 19:00</span>
+                    </div>
+
+                    <!-- [16. INSTAGRAM] (Reemplazar usuario y enlace) -->
+                    <div class="info-item">
+                        <strong>Instagram</strong>
+                        <a href="https://instagram.com/studioalma" target="_blank" rel="noopener">@studioalma</a>
+                    </div>
+
+                    <!-- ===== DATOS DEL CLIENTE: FIN ===== -->
+                </div>
+
+                <div class="contact-box">
+                    <!-- ===== DATOS DEL CLIENTE: INICIO ===== -->
+
+                    <!-- [17. WHATSAPP] -->
+                    <a href="https://wa.me/5491100000000" class="btn" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+                    
+                    <!-- [18. EMAIL] -->
+                    <div class="info-item" style="margin-top: 10px; margin-bottom: 0;">
+                        <strong>Correo electrónico</strong>
+                        <a href="mailto:hola@studioalma.com">hola@studioalma.com</a>
+                    </div>
+
+                    <!-- ===== DATOS DEL CLIENTE: FIN ===== -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==========================================================================
+       PIE DE PÁGINA / FOOTER
+       ========================================================================== -->
+    <footer>
+        <div class="container">
+            <!-- ===== DATOS DEL CLIENTE: INICIO ===== -->
+            <!-- [1. NOMBRE DEL NEGOCIO] -->
+            <p>&copy; 2026 Studio Alma. Todos los derechos reservados.</p>
+            <!-- ===== DATOS DEL CLIENTE: FIN ===== -->
+        </div>
+    </footer>
+
+</body>
+</html>
+```<FollowUp label="¿Querés que guardemos este código como la plantilla maestra para tus clientes?" query="¿Querés que guardemos este código como la plantilla maestra para tus clientes?"/>
+
+<ElicitationsGroup message="¿Cuál te gustaría que sea el siguiente paso?">
+  <Elicitation label="Crear archivo README.md de instrucciones" query="Crea un archivo README.md con la guía paso a paso para duplicar la plantilla y reemplazar los 18 datos para un cliente nuevo."/>
+  <Elicitation label="Probar plantilla con un cliente de otro rubro" query="Genera un ejemplo completo usando esta plantilla base para un profesional de la salud o consultor."/>
+</ElicitationsGroup>
